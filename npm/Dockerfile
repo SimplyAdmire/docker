@@ -20,7 +20,5 @@ RUN npm install -g bower && \
 RUN gem install bundler
 RUN gem install scss_lint
 
-COPY ./run-npm.sh /
-
 CMD ["-"]
 ENTRYPOINT ["npm"]

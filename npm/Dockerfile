@@ -1,10 +1,19 @@
-FROM node:4.4-slim
+FROM node:6.2-slim
 
 MAINTAINER Rens Admiraal <rens@simplyadmire.com>
 
-RUN apt-get update && apt-get;
+RUN apt-get update;
 RUN apt-get install -y git --no-install-recommends;
 RUN apt-get install -y ruby --no-install-recommends;
+
+RUN apt-get install -y python
+RUN apt-get install -y build-essential
+
+RUN npm install -g bower && \
+    npm install -g gulp-cli
+
+RUN gem install bundler
+RUN gem install scss_lint
 
 RUN apt-get autoremove -y && \
     apt-get clean && \
@@ -13,11 +22,5 @@ RUN apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /usr/share/man/?? && \
     rm -rf /usr/share/man/??_*
-
-RUN npm install -g bower && \
-    npm install -g gulp-cli
-
-RUN gem install bundler
-RUN gem install scss_lint
 
 CMD ["-"]

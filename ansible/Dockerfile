@@ -20,6 +20,7 @@ RUN apt-get install -y git
 RUN apt-get install -y openssh-client
 RUN apt-get install -y docker-engine
 RUN apt-get install -y rsync
+RUN apt-get install -y vim
 
 RUN apt-get autoremove -y && \
     apt-get clean && \

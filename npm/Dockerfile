@@ -12,6 +12,8 @@ RUN apt-get install -y build-essential
 RUN npm install -g bower && \
     npm install -g gulp-cli
 
+RUN npm install -g yarn
+
 RUN gem install bundler
 RUN gem install scss_lint
 

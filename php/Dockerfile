@@ -1,13 +1,16 @@
-FROM ubuntu:16.04
+FROM ubuntu:16.10
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN sed -i 's/http:\/\/nl./http:\/\//g' /etc/apt/sources.list
+# RUN sed -i 's/http:\/\/nl./http:\/\//g' /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install -y php7.0-fpm php7.0-cli
 RUN apt-get install -y \
     php7.0-mbstring php7.0-mysql php7.0-pgsql php7.0-zip \
     php7.0-ldap php7.0-curl php7.0-xml php7.0-soap php7.0-gd
+
+RUN apt-get install -y php7.0-redis
+RUN apt-get install -y php7.0-xdebug
 
 RUN apt-get install -y graphicsmagick
 RUN apt-get install -y curl

@@ -15,10 +15,4 @@ if [ "${userExists}" == "" ]; then
 fi
 
 arguments=$@
-
-if [ "${1}" == "install" ] || [ "${1}" == "update" ]; then
-    arguments=("--ignore-platform-reqs" "${arguments[@]}")
-fi
-
-command="composer --ansi ${arguments[@]}"
-exec /bin/su docker -c "${command}"
+su docker -c "${arguments[@]}"
